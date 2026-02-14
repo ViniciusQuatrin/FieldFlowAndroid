@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Permite tráfego HTTP (cleartext) apenas em modo debug para desenvolvimento local -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- Domínios específicos que permitem HTTP -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Localhost para emulador Android -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <!-- Localhost direto -->
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <!-- Range comum de IPs locais -->
+        <domain includeSubdomains="true">192.168.0.0</domain>
+        <domain includeSubdomains="true">192.168.1.0</domain>
+    </domain-config>
+</network-security-config>
+
